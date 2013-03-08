@@ -12,7 +12,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DerpUniversityConnectionString %>" SelectCommand="SELECT * FROM [Subject] ORDER BY [Code]"></asp:SqlDataSource>
 
     <table>
-        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Repeater1_ItemCommand">
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
             <ItemTemplate>
                 <asp:HiddenField ID="hiddenId" runat="server" Value='<%#Eval("Id") %>'/>
                 <tr>

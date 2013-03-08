@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -33,12 +34,48 @@ namespace MLAA.Web
         {
             string id = ((HiddenField)Repeater1.Items[e.Item.ItemIndex].FindControl("hiddenId")).Value;
 
-            var sql = "INSERT INTO StudentSubjectEnrolment (StudentId, SubjectId) VALUES (" + GlobalConstants.Authentication.CurrentUser.UserId + ", " + id + ")";
+            string sql;
+            if (EnrolmentManager.IsEnrolled(GlobalConstants.Authentication.CurrentUser.UserId, int.Parse(id)))
+            {
+                sql = "DELETE FROM StudentSubjectEnrolment WHERE StudentId=" + GlobalConstants.Authentication.CurrentUser.UserId + " AND SubjectId=" + id;
+            }
+            else
+            {
+                sql = "INSERT INTO StudentSubjectEnrolment (StudentId, SubjectId) VALUES (" + GlobalConstants.Authentication.CurrentUser.UserId + ", " + id + ")";
+            }
 
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
             connection.Open();
             var command = new SqlCommand(sql, connection);
             command.ExecuteNonQuery();
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            var item = (RepeaterItem) e.Item;
+            var dataRowView = (DataRowView) item.DataItem;
+            
+            var button = (Button)e.Item.FindControl("Button1");
+            int subjectId = (int)dataRowView["Id"];
+
+            if (EnrolmentManager.IsEnrolled(GlobalConstants.Authentication.CurrentUser.UserId, subjectId))
+            {
+                button.Text = "Cancel enrolment";
+            }
+        }
+    }
+
+    public static class EnrolmentManager
+    {
+        public static bool IsEnrolled(int studentId, int subjectId)
+        {
+            var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + GlobalConstants.Authentication.CurrentUser.UserId + " AND SubjectId='"+subjectId+"'";
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+            var result = (int)command.ExecuteScalar();
+            if (result > 0) return true;
+            return false;
         }
     }
 }
