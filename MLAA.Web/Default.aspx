@@ -8,7 +8,7 @@
                 <h2>Welcome to Derp University!</h2>
             </hgroup>
             <p>
-                Please sign up to give us all your future earnings in exchange for a mediocre qualification that won't
+                Please give us all your future earnings in exchange for a mediocre qualification that won't
                 help you much at all in your career. We hope you have a great time!
             </p>
         </div>
