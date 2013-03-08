@@ -4,9 +4,9 @@ namespace MLAA.Web
 {
     public static class GlobalConstants
     {
-        public static Guid CurrentStudentId
+        public static int CurrentStudentId
         {
-            get { return new Guid("F49E760B-38A9-4F6C-9B12-3B53C4B829EF"); }
+            get { return 1; }
         }
 
         public static class Authentication
@@ -29,7 +29,7 @@ namespace MLAA.Web
 
     public class User
     {
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
