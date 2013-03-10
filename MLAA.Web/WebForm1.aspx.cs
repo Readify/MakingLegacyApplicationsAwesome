@@ -92,7 +92,7 @@ namespace MLAA.Web
 
         public static SqlDataReader GetSTUdentEnrolments(int id)
         {
-            var sql = "SELECT * FROM Subject AS sse INNER JOIN StudentSubjectEnrolment AS s ON sse.Id = s.SubjectId WHERE s.StudentId=" + id;
+            var sql = "SELECT * FROM Subject AS sse INNER JOIN StudentSubjectEnrolment AS s ON sse.Id = s.StudentId WHERE s.StudentId=" + id;
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
             connection.Open();
             var command = new SqlCommand(sql, connection);
