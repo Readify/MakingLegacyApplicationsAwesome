@@ -44,7 +44,7 @@
             </div>
             <div class="float-right">
                 <section id="login" title="We're pretending that you're already logged in. Be quiet.">
-                    <%= GlobalConstants.Authentication.CurrentUser.Username %>
+                    <%= Authentication.CurrentUser.Username %>
                 </section>
                 <nav>
                     <ul id="menu">

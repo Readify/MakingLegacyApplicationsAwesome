@@ -14,7 +14,7 @@ namespace MLAA.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + GlobalConstants.Authentication.CurrentUser.UserId;
+            var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + Authentication.CurrentUser.UserId;
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
             connection.Open();
             var command = new SqlCommand(sql, connection);
@@ -32,16 +32,16 @@ namespace MLAA.Web
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            string id = ((HiddenField)Repeater1.Items[e.Item.ItemIndex].FindControl("hiddenId")).Value;
+            string strId = ((HiddenField)Repeater1.Items[e.Item.ItemIndex].FindControl("hiddenId")).Value;
 
             string sql;
-            if (EnrolmentManager.IsEnrolled(GlobalConstants.Authentication.CurrentUser.UserId, int.Parse(id)))
+            if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, int.Parse(strId)))
             {
-                sql = "DELETE FROM StudentSubjectEnrolment WHERE StudentId=" + GlobalConstants.Authentication.CurrentUser.UserId + " AND SubjectId=" + id;
+                sql = "DELETE FROM StudentSubjectEnrolment WHERE StudentId=" + Authentication.CurrentUser.UserId + " AND SubjectId=" + strId;
             }
             else
             {
-                sql = "INSERT INTO StudentSubjectEnrolment (StudentId, SubjectId) VALUES (" + GlobalConstants.Authentication.CurrentUser.UserId + ", " + id + ")";
+                sql = "INSERT INTO StudentSubjectEnrolment (StudentId, SubjectId) VALUES (" + Authentication.CurrentUser.UserId + ", " + strId + ")";
             }
 
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
@@ -58,7 +58,7 @@ namespace MLAA.Web
             var button = (Button)e.Item.FindControl("Button1");
             int subjectId = (int)dataRowView["Id"];
 
-            if (EnrolmentManager.IsEnrolled(GlobalConstants.Authentication.CurrentUser.UserId, subjectId))
+            if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, subjectId))
             {
                 button.Text = "Cancel enrolment";
             }
@@ -69,7 +69,7 @@ namespace MLAA.Web
     {
         public static bool IsEnrolled(int studentId, int subjectId)
         {
-            var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + GlobalConstants.Authentication.CurrentUser.UserId + " AND SubjectId='"+subjectId+"'";
+            var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + Authentication.CurrentUser.UserId + " AND SubjectId='"+subjectId+"'";
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
             connection.Open();
             var command = new SqlCommand(sql, connection);

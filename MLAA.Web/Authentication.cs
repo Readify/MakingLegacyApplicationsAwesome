@@ -8,21 +8,21 @@ namespace MLAA.Web
         {
             get { return 1; }
         }
+    }
 
-        public static class Authentication
+    public static class Authentication
+    {
+        public static User CurrentUser
         {
-            public static User CurrentUser
+            get
             {
-                get
+                return new User
                 {
-                    return new User
-                    {
-                        UserId = CurrentStudentId,
-                        Username = "fredflintstone",
-                        FirstName = "Fred",
-                        LastName = "Flintstone",
-                    };
-                }
+                    UserId = GlobalConstants.CurrentStudentId,
+                    Username = "fredflintstone",
+                    FirstName = "Fred",
+                    LastName = "Flintstone",
+                };
             }
         }
     }
