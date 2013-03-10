@@ -35,7 +35,9 @@ namespace MLAA.Web
             string strId = ((HiddenField)Repeater1.Items[e.Item.ItemIndex].FindControl("hiddenId")).Value;
 
             string sql;
-            if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, int.Parse(strId)))
+            int subjectId;
+            int.TryParse(strId, out subjectId);
+            if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, subjectId))
             {
                 sql = "DELETE FROM StudentSubjectEnrolment WHERE StudentId=" + Authentication.CurrentUser.UserId + " AND SubjectId=" + strId;
             }
