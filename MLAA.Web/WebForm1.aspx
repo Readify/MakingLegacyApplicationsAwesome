@@ -4,7 +4,20 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
-    You are enrolled in <asp:Label runat="server" ID="label1"></asp:Label> subjects this semester.
+    
+     <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>You are enrolled in <asp:Label runat="server" ID="label1"></asp:Label> subjects this semester.</h1>
+            </hgroup>
+            <p>
+                Please give us all your future earnings in exchange for a mediocre qualification that won't
+                help you much at all in your career. We hope you have a great time!
+            </p>
+        </div>
+    </section>
+
+    
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
@@ -16,10 +29,6 @@
             <ItemTemplate>
                 <asp:HiddenField ID="hiddenId" runat="server" Value='<%#Eval("Id") %>'/>
                 <tr>
-                    <td>
-                        <asp:Label runat="server" ID="Label2"
-                            Text='<%# Eval("Id") %>' />
-                    </td>
                     <td>
                         <asp:Label runat="server" ID="Label1"
                             Text='<%# Eval("Code") %>' />

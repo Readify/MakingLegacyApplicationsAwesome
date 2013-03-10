@@ -50,6 +50,7 @@
                     <ul id="menu">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/WebForm1.aspx">Subject Enrolment</a></li>
+                        <li><a runat="server" href="~/WebForm2.aspx">Class Lists</a></li>
                     </ul>
                 </nav>
             </div>

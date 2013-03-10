@@ -79,5 +79,25 @@ namespace MLAA.Web
             if (result > 0) return true;
             return false;
         }
+
+        public static SqlDataReader SearchStudents(string name)
+        {
+            var sql = "SELECT * FROM Student WHERE LastName LIKE '%"+name+"%'";
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+            var result = command.ExecuteReader();
+            return result;
+        }
+
+        public static SqlDataReader GetSTUdentEnrolments(int id)
+        {
+            var sql = "SELECT * FROM Subject AS sse INNER JOIN StudentSubjectEnrolment AS s ON sse.Id = s.SubjectId WHERE s.StudentId=" + id;
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+            connection.Open();
+            var command = new SqlCommand(sql, connection);
+            var result = command.ExecuteReader();
+            return result;
+        }
     }
 }

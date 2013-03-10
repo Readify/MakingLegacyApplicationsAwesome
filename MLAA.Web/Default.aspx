@@ -29,8 +29,10 @@
             web site.
         </li>
         <li class="three">
-            <h5>View your subject timetable</h5>
-
+            <h5>View your class lists</h5>
+            Want to see if that cute guy or girl is in your class? <a id="A1" runat="server" href="~/WebForm2.aspx">Click here</a>
+ and we'll tell you!
+                        
         </li>
     </ol>
 </asp:Content>
