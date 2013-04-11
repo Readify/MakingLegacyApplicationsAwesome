@@ -91,6 +91,7 @@ Before the workshop, your laptop should contain:
 * JetBrains [ReSharper](http://www.jetbrains.com/resharper). You can get a 30-day trial if you don't have a licence.
 * The installer for JetBrains [TeamCity](http://ww.jetbrains.com/teamcity). Install it in advance if you want but that isn't required.
 * A Git client of some description. Download [TortoiseGit](https://code.google.com/p/tortoisegit/wiki/Download) if you're not familiar with Git. Don't worry - we won't be doing anything scary with it.
+* [smtp4dev](http://smtp4dev.codeplex.com/)
 * A [backup](https://www.dropbox.com/s/d3ejfriu3aewqpt/DerpUniversity.bak) of the app's database. It would be a good idea to restore this to SQL Server Express beforehand just so you know how to do it.
 
 The hashtags for the day are #Readify #DevDay and your presenters are [@uglybugger](https://twitter.com/uglybugger) and [@kkozmic](https://twitter.com/kkozmic). By all means, please have fun - but be nice.
