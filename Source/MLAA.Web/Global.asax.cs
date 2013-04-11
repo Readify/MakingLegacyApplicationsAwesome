@@ -40,7 +40,14 @@ namespace MLAA.Web
                 var body = (string) reader.GetValue(3);
 
                 var smtpClient = new SmtpClient("localhost");
-                smtpClient.Send(new MailMessage(from, recipient, subject, body));
+                try
+                {
+                    smtpClient.Send(new MailMessage(from, recipient, subject, body));
+                }
+                catch
+                {
+                    goto TrYAGainLater;
+                }
 
             }
             connection.Close();
@@ -49,6 +56,9 @@ namespace MLAA.Web
             var sql2 = "DELETE FROM Email";
             var command2 = new SqlCommand(sql2, connection);
             command2.ExecuteNonQuery();
+
+        TrYAGainLater:
+            ;
         }
     }
 }
