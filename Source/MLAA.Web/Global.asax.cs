@@ -5,21 +5,45 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.Optimization;
 
+/// <summary>
+/// 
+/// </summary>
 namespace MLAA.Web
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Global : HttpApplication
     {
+        /// <summary>
+        /// Code that runs on application startup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        private void Application_End(object sender, EventArgs e)
+       /// <summary>
+        /// Code that runs on application startup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        //private void Application_Start(object sender, EventArgs e)
+         private void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown
         }
 
+        // /// <summary>
+        ///// Code that runs on application startup
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        ////private void Application_Start(object sender, EventArgs e)
+        // private void Application_End(object sender, EventArgs e)
         private void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
