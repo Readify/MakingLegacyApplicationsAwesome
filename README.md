@@ -8,7 +8,7 @@ villagers over in Herp Town that they were not to be outdone).
 
 The villagers were a poor but sincere lot and they were determined to build their university the
 Right Way&#8482;. They formed a Board of Directors (this was Modern Times, after all, and the
-old, fuddy-duddy Academic Council could leave their robes at home, thankyouverymuch) and resolved
+old, fuddy-duddy Academic Council could leave their robes at home, *thankyouverymuch*) and resolved
 that their university would do the best of everything. It would be the most grand university in all
 the land. (Being more grand than the nearby Herp College, of course, was a thought that occurred to
 nobody at all and the citizens would not have *dreamed* of slighting their neighbours.)
@@ -82,7 +82,7 @@ In this case, the app is Derp University's Enrolment Portal, and your mission is
 * Get it into a maintainable state.
 * Extend it to allow the university to handle enrolments for multiple semesters.
 * Ship it before winter arrives (i.e. in two days, when the workshop concludes).
-* Understand how to make an aweful app awesome and keep it that way.
+* Understand how to make an awful app awesome and keep it that way.
 
 Before the workshop, your laptop should contain:
 
