@@ -90,6 +90,8 @@ Before the workshop, your laptop should contain:
 * Microsoft [SQL Server 2012 Express Edition](http://www.microsoft.com/en-us/sqlserver/editions/2012-editions/express.aspx). It would be a good idea to install this in advance as it takes a while.
 * JetBrains [ReSharper](http://www.jetbrains.com/resharper). You can get a 30-day trial if you don't have a licence.
 * The installer for JetBrains [TeamCity](http://ww.jetbrains.com/teamcity). Install it in advance if you want but that isn't required.
+* The installers for [Octopus Deploy](http://octopusdeploy.com/) (grab the Octopus Server, Octopus Tentacle and TeamCity Plugin downloads). You don't need to install this in advance.
+* IIS installed on your laptop. You can have IIS Express as well but you will want the **full version of IIS** installed, otherwise we can't mimic a production system.
 * A Git client of some description. Download [TortoiseGit](https://code.google.com/p/tortoisegit/wiki/Download) if you're not familiar with Git. Don't worry - we won't be doing anything scary with it.
 * [smtp4dev](http://smtp4dev.codeplex.com/)
 * A [backup](https://www.dropbox.com/s/d3ejfriu3aewqpt/DerpUniversity.bak) of the app's database. It would be a good idea to restore this to SQL Server Express beforehand just so you know how to do it.
