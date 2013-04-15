@@ -9,6 +9,9 @@ namespace MLAA.Web
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-      
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e)
+        }
     }
 }
