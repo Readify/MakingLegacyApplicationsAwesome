@@ -32,8 +32,8 @@ night, but by and large the villagers were pleased.
 One fine day, the Dean's teenage offspring decided to embark upon an adventure. The child packed
 some belongings, said some good-byes and set off to find the Ivory Tower of the Architect. The
 villagers rejoiced, for the Architect would surely praise their Enrolment Portal and speak of them
-in tones of wonder. (And not at all smug, of course, that Herp College had never seen or spoken to
-the Architect or been so praised.)
+in tones of wonder. (And they would be not at all smug, of course, that Herp College had never seen
+or spoken to the Architect or been so praised.)
 
 During the time in which the Dean's teenage child and creator of the Enrolment Portal was adventuring,
 it came time for the villagers to extend the portal. While it had been quite good for the first
@@ -86,7 +86,7 @@ In this case, the app is Derp University's Enrolment Portal, and your mission is
 
 Before the workshop, your laptop should contain:
 
-* Microsoft [Visual Studio](http://www.microsoft.com/visualstudio/eng) 2010 or 2012. We recommend 2012.
+* Microsoft [Visual Studio](http://www.microsoft.com/visualstudio/eng) 2012. If you don't have 2012 you can download a trial from Microsoft.
 * Microsoft [SQL Server 2012 Express Edition](http://www.microsoft.com/en-us/sqlserver/editions/2012-editions/express.aspx). It would be a good idea to install this in advance as it takes a while.
 * JetBrains [ReSharper](http://www.jetbrains.com/resharper). You can get a 30-day trial if you don't have a licence.
 * The installer for JetBrains [TeamCity](http://ww.jetbrains.com/teamcity). Install it in advance if you want but that isn't required.
@@ -94,8 +94,39 @@ Before the workshop, your laptop should contain:
 * IIS installed on your laptop. You can have IIS Express as well but you will want the **full version of IIS** installed, otherwise we can't mimic a production system.
 * A Git client of some description. Download [TortoiseGit](https://code.google.com/p/tortoisegit/wiki/Download) if you're not familiar with Git. Don't worry - we won't be doing anything scary with it.
 * [smtp4dev](http://smtp4dev.codeplex.com/)
-* A [backup](https://www.dropbox.com/s/d3ejfriu3aewqpt/DerpUniversity.bak) of the app's database. It would be a good idea to restore this to SQL Server Express beforehand just so you know how to do it.
+* A [backup](https://www.dropbox.com/s/d3ejfriu3aewqpt/DerpUniversity.bak) of the app's database. **It would be a good idea to restore this to SQL Server Express beforehand just so you know how to do it.**
 
-The hashtags for the day are #Readify #DevDay and your presenters are [@uglybugger](https://twitter.com/uglybugger) and [@kkozmic](https://twitter.com/kkozmic). By all means, please have fun - but be nice.
+The hashtags for the day are #Readify #DevDay. Your presenters are:
 
-We're looking forward to seeing you there!
+ * [@uglybugger](https://twitter.com/uglybugger) (Brisbane/Melbourne/Sydney)
+ * [@kkozmic](https://twitter.com/kkozmic) (Brisbane)
+ * [@MaheshKrishnan](https://twitter.com/MaheshKrishnan) (Melbourne)
+ * [@jorgefioranelli](https://twitter.com/jorgefioranelli) (Sydney)
+
+By all means, please have fun - but be nice. We're looking forward to seeing you there!
+
+# All done? Here's some follow-up material.
+
+## To read
+
+* Eric Evans, "Domain-Driven Design: Tackling Complexity in the Heart of Software"
+* Michael Feathers, "Working Effectively with Legacy Code"
+* Roy Osherove, "The Art of Unit Testing"
+* Eric Freeman et al, "Head-first Design Patterns"
+* Robert C. Martin, "Clean Code: A Handbook of Agile Software Craftsmanship"
+* Jez Humble and David Farley, "Continuous Delivery"
+* Andrew Hunt and David Thomas, "The Pragmatic Programmer: From Journeyman to Master"
+* Mark Seeman, "Dependency Injection in .NET"
+
+## To watch
+
+* [IoC from First Principles: Top Gear Style](http://www.codingforfunandprofit.com/blog/video_from_my_dddbrisbane_talk_yesterday_is_now_online)
+
+## To Google
+
+* [Domain events](http://lmgtfy.com/?q=domain+events)
+* Sagas
+
+## Feedback?
+
+We'd love to hear from you. Feel free to contact us at firstname dot lastname at readify dot net.
