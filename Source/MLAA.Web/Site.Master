@@ -19,8 +19,8 @@
     <asp:ScriptManager runat="server">
         <Scripts>
             <%--Framework Scripts--%>
-            <asp:ScriptReference Name="jquery" Path="~/Scripts/jquery-1.7.1.js" />
-            <asp:ScriptReference Name="jquery.ui.combined" Path="~/Scripts/jquery-ui-1.8.20.js" />
+            <asp:ScriptReference Path="~/Scripts/jquery-1.7.1.js" />
+            <asp:ScriptReference Path="~/Scripts/jquery-ui-1.8.20.js" />
             <%--Site Scripts--%>
 
         </Scripts>
