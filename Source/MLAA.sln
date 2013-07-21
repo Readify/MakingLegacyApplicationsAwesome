@@ -1,5 +1,5 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLAA.Web", "MLAA.Web\MLAA.Web.csproj", "{B1FB8929-B73C-4E10-AE46-D74E1AFBFE39}"
 EndProject
