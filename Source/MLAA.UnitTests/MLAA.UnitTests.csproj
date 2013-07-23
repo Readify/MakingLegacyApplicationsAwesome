@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhenAStudentAttemptsToEnrolInASubjectThatIsFull.cs" />
     <Compile Include="WhenAStudentEnrolsInASubject.cs" />
     <Compile Include="WhenTheTestHarnessRuns.cs" />
   </ItemGroup>
