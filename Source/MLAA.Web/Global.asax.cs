@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Optimization;
+using MLAA.Database;
 
 /// <summary>
 /// 
@@ -22,6 +23,9 @@ namespace MLAA.Web
         /// <param name="e"></param>
         private void Application_Start(object sender, EventArgs e)
         {
+            DatabaseUpgrader.Upgrade(
+                ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+
             // Code that runs on application startup
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
