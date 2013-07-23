@@ -163,22 +163,26 @@ namespace MLAA.Web
         /// <returns></returns>
         public static Student[] SearchStudents(string name)
         {
-            var db = new DerpUniversityDataContext();
-            var students = db.Students
-                             .Where(s => s.LastName.Contains(name))
-                             .ToArray();
-            return students;
+            using (var db = new DerpUniversityDataContext())
+            {
+                var students = db.Students
+                                 .Where(s => s.LastName.Contains(name))
+                                 .ToArray();
+                return students;
+            }
         }
 
-          public static SqlDataReader GetSTUdentEnrolments(int name)
+          public static Subject[] GetStudentEnrolments(int id)
         {
-            
-            var sql = "SELECT * FROM Subject AS sse INNER JOIN StudentSubjectEnrolment AS s ON sse.Id = s.StudentId WHERE s.StudentId=" + name;
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
-            connection.Open();
-            var command = new SqlCommand(sql, connection);
-            var result = command.ExecuteReader();
-            return result;
+              using (var db = new DerpUniversityDataContext())
+              {
+                  var subjects = db.Students
+                                   .First(s => s.Id == id)
+                                   .StudentSubjectEnrolments
+                                   .Select(sse => sse.Subject)
+                                   .ToArray();
+                  return subjects;
+              }
         }
     }
 }
