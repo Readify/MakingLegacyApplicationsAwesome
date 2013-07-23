@@ -170,19 +170,9 @@ namespace MLAA.Web
             return students;
         }
 
-        /// <summary>
-        /// Searches for a student by name.
-        /// </summary>
-        /// <param name="name">Any Part of the first name or last name of the student.</param>
-        /// <returns></returns>
           public static SqlDataReader GetSTUdentEnrolments(int name)
         {
-            //var sql = "SELECT * FROM Student WHERE LastName LIKE '%" + name + "%'";
-            //var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
-            //connection.Open();
-            //var command = new SqlCommand(sql, connection);
-            //var result = command.ExecuteReader();
-            //return result; 
+            
             var sql = "SELECT * FROM Subject AS sse INNER JOIN StudentSubjectEnrolment AS s ON sse.Id = s.StudentId WHERE s.StudentId=" + name;
             var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
             connection.Open();
