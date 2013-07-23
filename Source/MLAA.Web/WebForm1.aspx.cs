@@ -18,11 +18,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MLAA.Data.Linq2Sql;
 
 namespace MLAA.Web
 {
-    using System; using System.Linq;
+    using System;
     using System.Web;
     using System.Web.UI;
     using System.Collections.Generic;
@@ -121,68 +120,6 @@ namespace MLAA.Web
             {
                 throw E;
             }
-        }
-    }
-
-    /// <summary>
-    /// This class is where everything about student enrokllments goes. DO NOT PUT ANYTHING ABOUT ENROLMENTS ANYWHERE ELSE
-    /// OR I WILL SHOUT AT YOU.
-    /// </summary>
-    public static class EnrolmentManager
-    {
-        /// <summary>
-            /// Is the Enrolled
-            /// </summary>
-            /// <param name="studentId"></param>
-            /// <param name="subjectId"></param>
-            /// <returns></returns>
-            public static bool IsEnrolled(int studentId, int subjectId)
-            {
-                try
-                {
-                    //var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + Authentication.CurrentUser.UserId
-                    //var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE SubjectId='"+subjectId+"'";
-                    var sql = "SELECT COUNT(*) FROM StudentSubjectEnrolment WHERE StudentId = " + Authentication.CurrentUser.UserId + " AND SubjectId='" + subjectId + "'";
-                    var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
-                    connection.Open();
-                var command = new SqlCommand(sql, connection);
-                var result = (int) command.ExecuteScalar();
-                if (result > 0) return true;
-                return false;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// Searches for a student by name.
-        /// </summary>
-        /// <param name="name">Any Part of the first name or last name of the student.</param>
-        /// <returns></returns>
-        public static Student[] SearchStudents(string name)
-        {
-            using (var db = new DerpUniversityDataContext())
-            {
-                var students = db.Students
-                                 .Where(s => s.LastName.Contains(name))
-                                 .ToArray();
-                return students;
-            }
-        }
-
-          public static Subject[] GetStudentEnrolments(int id)
-        {
-              using (var db = new DerpUniversityDataContext())
-              {
-                  var subjects = db.Students
-                                   .First(s => s.Id == id)
-                                   .StudentSubjectEnrolments
-                                   .Select(sse => sse.Subject)
-                                   .ToArray();
-                  return subjects;
-              }
         }
     }
 }
