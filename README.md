@@ -117,6 +117,7 @@ By all means, please have fun - but be nice. We're looking forward to seeing you
 * Jez Humble and David Farley, "Continuous Delivery"
 * Andrew Hunt and David Thomas, "The Pragmatic Programmer: From Journeyman to Master"
 * Mark Seeman, "Dependency Injection in .NET"
+* Vaughn Vernon, "Implementing Domain-Driven Design"
 
 ## To watch
 
