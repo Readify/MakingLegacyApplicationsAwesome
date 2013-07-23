@@ -14,11 +14,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MLAA.Data.Linq2Sql;
 
 namespace MLAA.Web
 {
@@ -124,20 +122,6 @@ namespace MLAA.Web
             catch(Exception E)
             {
                 throw E;
-            }
-        }
-    }
-
-    public class WebForm1ViewModel
-    {
-        public void EnrolStudentInSubject(int userId, int subjectId)
-        {
-            using (var db = new DerpUniversityDataContext())
-            {
-                var student = db.Students.First(stu => stu.Id == userId);
-                var subject = db.Subjects.First(subj => subj.Id == subjectId);
-
-                student.EnrolIn(subject);
             }
         }
     }
