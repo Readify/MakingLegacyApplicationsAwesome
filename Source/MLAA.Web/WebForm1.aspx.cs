@@ -18,6 +18,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MLAA.Data.Linq2Sql;
 
 namespace MLAA.Web
 {
@@ -160,13 +161,13 @@ namespace MLAA.Web
         /// </summary>
         /// <param name="name">Any Part of the first name or last name of the student.</param>
         /// <returns></returns>
-        public static SqlDataReader SearchStudents(string name)
+        public static Student[] SearchStudents(string name)
         {
-            var sql = "SELECT * FROM Student WHERE LastName LIKE '"+name+"%'";
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
-            connection.Open();
-            var command = new SqlCommand(sql, connection);var result = command.ExecuteReader();
-            return result;
+            var db = new DerpUniversityDataContext();
+            var students = db.Students
+                             .Where(s => s.LastName.Contains(name))
+                             .ToArray();
+            return students;
         }
 
         /// <summary>

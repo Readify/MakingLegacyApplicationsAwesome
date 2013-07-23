@@ -44,6 +44,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -220,6 +221,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MLAA.Data.Linq2Sql\MLAA.Data.Linq2Sql.csproj">
+      <Project>{6B4138B0-B044-4F36-B45A-9EE159F55EBB}</Project>
+      <Name>MLAA.Data.Linq2Sql</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MLAA.Database\MLAA.Database.csproj">
       <Project>{A8359956-AAFA-453F-BEE0-9330CED464B6}</Project>
       <Name>MLAA.Database</Name>

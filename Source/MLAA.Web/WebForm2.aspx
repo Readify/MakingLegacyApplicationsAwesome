@@ -24,9 +24,9 @@
     %>
         <tr>
             <td>
-                <%= ((System.Data.Common.DbDataRecord)s) ["FirstName"] %> <%= ((System.Data.Common.DbDataRecord)s)["LastName"] %>
+                <%= s.FirstName %> <%= s.LastName %>
                     <%
-                        foreach (var e in EnrolmentManager.GetSTUdentEnrolments(int.Parse(((System.Data.Common.DbDataRecord) s)["Id"].ToString())))
+                        foreach (var e in EnrolmentManager.GetSTUdentEnrolments(s.Id))
                         {
                             %>
                     <tr>
