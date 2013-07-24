@@ -25,14 +25,4 @@ namespace MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject
             _emailSender.Send(message);
         }
     }
-
-    public interface IEmailSender
-    {
-        void Send(MailMessage message);
-    }
-
-    public interface IHandle<TDomainEvent>
-    {
-        void Handle(TDomainEvent domainEvent);
-    }
 }

@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,8 @@
       <DependentUpon>DerpUniversity.dbml</DependentUpon>
     </Compile>
     <Compile Include="DomainEvents.cs" />
+    <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\IEmailSender.cs" />
+    <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\IHandle.cs" />
     <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\SendTheStudentAConfirmationEmail.cs" />
     <Compile Include="IEventBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
