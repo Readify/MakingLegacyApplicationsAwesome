@@ -1,4 +1,4 @@
-﻿namespace MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject
+﻿namespace MLAA.Data.Linq2Sql
 {
     public interface IHandle<TDomainEvent>
     {

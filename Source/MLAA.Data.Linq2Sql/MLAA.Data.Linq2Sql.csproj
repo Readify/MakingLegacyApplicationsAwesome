@@ -47,8 +47,8 @@
       <DependentUpon>DerpUniversity.dbml</DependentUpon>
     </Compile>
     <Compile Include="DomainEvents.cs" />
-    <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\IEmailSender.cs" />
-    <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\IHandle.cs" />
+    <Compile Include="IEmailSender.cs" />
+    <Compile Include="IHandle.cs" />
     <Compile Include="EventHandlers\WhenAStudentEnrolsInASubject\SendTheStudentAConfirmationEmail.cs" />
     <Compile Include="IEventBroker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
