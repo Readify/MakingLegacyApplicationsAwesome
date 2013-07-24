@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using MLAA.Web;
 using NUnit.Framework;
 using Shouldly;
@@ -8,19 +8,13 @@ using Shouldly;
 namespace MLAA.UnitTests.Conventions
 {
     [TestFixture]
-    [Ignore]
     public class AllViewModels
     {
         [Test]
         [TestCaseSource("TestCases")]
-        public void ShouldOnlyEverDependOnAbstractions(Type viewModelType)
+        public void ShouldOnlyEverDependOnAbstractions(ParameterInfo parameterInfo)
         {
-            var constructorInfo = viewModelType.GetConstructors().Single();
-            var constructorParameters = constructorInfo.GetParameters();
-            foreach (var p in constructorParameters)
-            {
-                p.ParameterType.IsInterface.ShouldBe(true);
-            }
+            parameterInfo.ParameterType.IsInterface.ShouldBe(true);
         }
 
         public IEnumerable<TestCaseData> TestCases()
