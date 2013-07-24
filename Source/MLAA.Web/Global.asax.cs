@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Net.Mail;
 using System.Web;
 using System.Web.Optimization;
 using Autofac;
 using Autofac.Integration.Web;
 using MLAA.Data.Linq2Sql;
-using MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject;
 using MLAA.Database;
 using MLAA.Web.App_Start;
 
@@ -88,6 +85,21 @@ namespace MLAA.Web
             builder.RegisterType<SmtpEmailSender>()
                    .AsImplementedInterfaces()
                    .SingleInstance();
+
+            builder.RegisterAssemblyTypes(typeof (WebForm1ViewModel).Assembly)
+                   .Where(t => t.Name.EndsWith("ViewModel"))
+                   .AsSelf()
+                   .InstancePerLifetimeScope();
+
+            builder.Register(c => new DerpUniversityDataContext(
+                                      ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString))
+                   .OnRelease(c =>
+                   {
+                       c.SubmitChanges();
+                       c.Dispose();
+                   })
+                   .As<DerpUniversityDataContext>()
+                   .InstancePerLifetimeScope();
 
             _containerProvider = new ContainerProvider(builder.Build());
         }
