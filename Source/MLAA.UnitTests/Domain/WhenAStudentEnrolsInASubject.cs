@@ -3,7 +3,7 @@ using NSubstitute;
 using NUnit.Framework;
 using Shouldly;
 
-namespace MLAA.UnitTests
+namespace MLAA.UnitTests.Domain
 {
     [TestFixture]
     public class WhenAStudentEnrolsInASubject

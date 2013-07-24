@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conventions\AllComponentsRegisteredWithTheContainer.cs" />
+    <Compile Include="Conventions\AllPages.cs" />
+    <Compile Include="Conventions\AllViewModels.cs" />
+    <Compile Include="Conventions\EveryPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\WhenAStudentAttemptsToEnrolInASubjectThatIsFull.cs" />
     <Compile Include="Domain\WhenAStudentEnrolsInASubject.cs" />

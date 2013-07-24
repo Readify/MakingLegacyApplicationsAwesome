@@ -2,7 +2,7 @@
 using MLAA.Data.Linq2Sql;
 using NUnit.Framework;
 
-namespace MLAA.UnitTests
+namespace MLAA.UnitTests.Domain
 {
     [TestFixture]
     public class WhenAStudentAttemptsToEnrolInASubjectThatIsFull
