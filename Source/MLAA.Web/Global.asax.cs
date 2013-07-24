@@ -5,6 +5,7 @@ using System.Web.Optimization;
 using Autofac;
 using Autofac.Integration.Web;
 using MLAA.Data.Linq2Sql;
+using MLAA.Data.Linq2Sql.Domain.Services;
 using MLAA.Database;
 using MLAA.Web.App_Start;
 
@@ -100,6 +101,13 @@ namespace MLAA.Web
                    })
                    .As<DerpUniversityDataContext>()
                    .InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(typeof (IDomainService).Assembly)
+                   .Where(t => t.IsAssignableTo<IDomainService>())
+                   .Where(t => !t.IsAbstract)
+                   .Where(t => !t.IsInterface)
+                   .InstancePerLifetimeScope()
+                   .AsImplementedInterfaces();
 
             _containerProvider = new ContainerProvider(builder.Build());
         }

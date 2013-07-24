@@ -1,23 +1,19 @@
-﻿using System.Linq;
-using MLAA.Data.Linq2Sql;
+﻿using MLAA.Data.Linq2Sql.Domain.Services;
 
 namespace MLAA.Web
 {
     public class WebForm1ViewModel
     {
-        private readonly DerpUniversityDataContext _db;
+        private readonly IStudentEnrolmentService _enrolmentService;
 
-        public WebForm1ViewModel(DerpUniversityDataContext db)
+        public WebForm1ViewModel(IStudentEnrolmentService enrolmentService)
         {
-            _db = db;
+            _enrolmentService = enrolmentService;
         }
 
         public void EnrolStudentInSubject(int userId, int subjectId)
         {
-            var student = _db.Students.First(stu => stu.Id == userId);
-            var subject = _db.Subjects.First(subj => subj.Id == subjectId);
-
-            student.EnrolIn(subject);
+            _enrolmentService.EnrolStudentInSubject(userId, subjectId);
         }
     }
 }

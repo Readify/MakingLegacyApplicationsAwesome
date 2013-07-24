@@ -5,7 +5,6 @@ using System.Web;
 using Autofac;
 using Autofac.Integration.Web;
 using MLAA.Data.Linq2Sql;
-using MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject;
 
 namespace MLAA.Web
 {

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
+﻿using System.Net.Mail;
 
-namespace MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject
+namespace MLAA.Data.Linq2Sql.Domain.EventHandlers.WhenAStudentEnrolsInASubject
 {
     public class SendTheStudentAConfirmationEmail: IHandle<StudentEnrolledInSubjectEvent>
     {

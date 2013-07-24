@@ -1,6 +1,6 @@
 ﻿using System.Net.Mail;
 
-namespace MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject
+namespace MLAA.Data.Linq2Sql.Domain.EventHandlers.WhenAStudentEnrolsInASubject
 {
     public class SendTheSubjectCoordinatorANotificationEmail : IHandle<StudentEnrolledInSubjectEvent>
     {

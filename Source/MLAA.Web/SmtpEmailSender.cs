@@ -1,6 +1,5 @@
 ﻿using System.Net.Mail;
 using MLAA.Data.Linq2Sql;
-using MLAA.Data.Linq2Sql.EventHandlers.WhenAStudentEnrolsInASubject;
 
 namespace MLAA.Web
 {
