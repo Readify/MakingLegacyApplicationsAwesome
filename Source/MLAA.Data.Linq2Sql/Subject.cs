@@ -14,6 +14,8 @@ namespace MLAA.Data.Linq2Sql
                 Student = student,
                 Subject = this,
             });
+
+            DomainEvents.Raise(new StudentEnrolledInSubjectEvent(student, this));
         }
 
         private bool IsEnrolled(Student student)

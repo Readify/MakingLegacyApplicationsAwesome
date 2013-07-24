@@ -1,4 +1,5 @@
 ﻿using MLAA.Data.Linq2Sql;
+using NSubstitute;
 using NUnit.Framework;
 using Shouldly;
 
@@ -9,10 +10,14 @@ namespace MLAA.UnitTests
     {
         private Student _fred;
         private Subject _law;
+        private IEventBroker _eventBroker;
 
         [SetUp]
         public void SetUp()
         {
+            _eventBroker = Substitute.For<IEventBroker>();
+            DomainEvents.SetEventBrokerStrategy(_eventBroker);
+
             _fred = new Student();
             _law = new Subject();
 
@@ -25,6 +30,12 @@ namespace MLAA.UnitTests
         {
             // Assert
             _fred.IsEnrolledIn(_law).ShouldBe(true);
+        }
+
+        [Test]
+        public void ADomainEventShouldBeRaised()
+        {
+            _eventBroker.Received().Raise(Arg.Any<StudentEnrolledInSubjectEvent>());
         }
     }
 }

@@ -27,7 +27,7 @@ namespace MLAA.Web
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
-   
+
     using System.Web.UI.WebControls;
 
     /// <summary>
@@ -77,21 +77,18 @@ namespace MLAA.Web
             if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, SUBJECT))
             {
                 SQL = "DELETE FROM StudentSubjectEnrolment WHERE StudentId=" + Authentication.CurrentUser.UserId + " AND SubjectId=" + subject;
+                // not sure how this works but it was on stack overflow
+                var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+                connection.Open();
+                var command = new SqlCommand(SQL, connection);
+                command.ExecuteNonQuery();
             }
             else
             {
                 var userId = Authentication.CurrentUser.UserId;
                 var subjectId = SUBJECT;
                 ViewModel.EnrolStudentInSubject(userId, subjectId);
-
-                SQL = "INSERT INTO StudentSubjectEnrolment (StudentId, SubjectId) VALUES (" + Authentication.CurrentUser.UserId + ", " + subject + ")";
             }
-
-            // not sure how this works but it was on stack overflow
-                        var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
-                        connection.Open();
-                        var command = new SqlCommand(SQL, connection);
-                        command.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -99,27 +96,27 @@ namespace MLAA.Web
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-               /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="source"></param>
         /// <param name="e"></param>
-         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             try
             {
-                var item = (RepeaterItem) e.Item;
-                var dataRowView = (DataRowView) item.DataItem;
+                var item = (RepeaterItem)e.Item;
+                var dataRowView = (DataRowView)item.DataItem;
 
-                var BUTTON1 = (Button) e.Item.FindControl("Button1");
-                int subjectId = (int) dataRowView["Id"];
+                var BUTTON1 = (Button)e.Item.FindControl("Button1");
+                int subjectId = (int)dataRowView["Id"];
 
                 if (EnrolmentManager.IsEnrolled(Authentication.CurrentUser.UserId, subjectId))
                 {
                     BUTTON1.Text = "Cancel enrolment";
                 }
             }
-            catch(Exception E)
+            catch (Exception E)
             {
                 throw E;
             }

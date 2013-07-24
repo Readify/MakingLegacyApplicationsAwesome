@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Optimization;
+using MLAA.Data.Linq2Sql;
 using MLAA.Database;
 
 /// <summary>
@@ -25,6 +26,8 @@ namespace MLAA.Web
         {
             DatabaseUpgrader.Upgrade(
                 ConfigurationManager.ConnectionStrings["DerpUniversityConnectionString"].ConnectionString);
+
+            DomainEvents.SetEventBrokerStrategy(new LyingCheatingEventBrokerThatDoesNothing());
 
             // Code that runs on application startup
             BundleConfig.RegisterBundles(BundleTable.Bundles);
@@ -87,6 +90,14 @@ namespace MLAA.Web
 
         TrYAGainLater:
             ;
+        }
+    }
+
+    public class LyingCheatingEventBrokerThatDoesNothing : IEventBroker
+    {
+        public void Raise<T>(T domainEvent)
+        {
+            // Ha ha ha ha ha!!!!
         }
     }
 }
