@@ -89,6 +89,9 @@ namespace MLAA.Web
                 var subjectId = SUBJECT;
                 ViewModel.EnrolStudentInSubject(userId, subjectId);
             }
+
+            Response.Redirect("/WebForm1.aspx");
+            Response.End();
         }
 
         /// <summary>
