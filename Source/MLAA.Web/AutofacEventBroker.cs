@@ -16,13 +16,11 @@ namespace MLAA.Web
             var cpa = (IContainerProviderAccessor)HttpContext.Current.ApplicationInstance;
             var cp = cpa.ContainerProvider;
 
-            var handler = cp.RequestLifetime.Resolve<IHandle<T>>();
-
-            if (handler == null)
-                throw new InvalidOperationException(
-                    String.Format("Type not registered '{0}'", typeof(T).Name));
-
-            handler.Handle(domainEvent);
+            var handlers = cp.RequestLifetime.Resolve<IEnumerable<IHandle<T>>>();
+            foreach (var handler in handlers)
+            {
+                handler.Handle(domainEvent);
+            }
         }
     }
 }
